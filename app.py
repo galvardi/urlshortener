@@ -1,11 +1,12 @@
-from hashlib import md5
+import hashlib
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # from starlette.responses import RedirectResponse
 from fastapi.responses import RedirectResponse
 
-DOMAIN_NAME = "http://localhost:8000/"
+DOMAIN_NAME = "http://127.0.0.1:8000/"
+HASH_SIZE = 10
 
 app = FastAPI()
 
@@ -23,8 +24,10 @@ short_to_long_dict = {}
 
 
 def calculate_hash(st: str) -> str:
-    return md5(st.encode()).hexdigest()[:7]
-
+    h = hashlib.blake2s(digest_size=4)
+    h.update(st.encode())
+    return h.hexdigest()
+    
 
 # user gives long url receives short
 @app.post("/shorten/")
