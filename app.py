@@ -26,6 +26,7 @@ async def get_long_url(hashed_url: str):
     return url
 
 # TODO: Add initializer
+# TODO: add env vars to server
 # TODO: Make dynamo functions async using decorator
 # TODO: Add exception handling?
 # TODO: Add dynamo interface
