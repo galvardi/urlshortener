@@ -5,6 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 # from starlette.responses import RedirectResponse
 from fastapi.responses import RedirectResponse
 
+from dyanmo_db_manger import DynamoDBManager
+
 DOMAIN_NAME = "http://127.0.0.1:8000/"
 HASH_SIZE = 10
 
@@ -21,6 +23,8 @@ app.add_middleware(
 
 long_to_short_dict = {}
 short_to_long_dict = {}
+
+db = DynamoDBManager()
 
 
 def calculate_hash(st: str) -> str:
@@ -50,11 +54,9 @@ async def root():
 
 # user gives short url gets back long url
 @app.get("/{url_hash}")
-async def get_long_url(url_hash: str):
-    if url_hash not in short_to_long_dict:
-        return "URL not found" #change to 404 error
-
-    return RedirectResponse(url=short_to_long_dict[url_hash]) #gal
+async def get_long_url(website: str):
+    url = db.get_from_table("long-to-short", website)
+    return url
 
 
 @app.get("/yahoo")
