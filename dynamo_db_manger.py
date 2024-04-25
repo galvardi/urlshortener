@@ -28,7 +28,7 @@ class DynamoDBManager:
     def get_url(self, key: str) -> Optional[str]:
         response = self.short_to_long_table.get_item(Key={HASHED_URL: key})
         if not response.get("Item"): return
-        return response["Item"][HASHED_URL]
+        return response["Item"][LONG_URL]
 
 # if __name__ == '__main__':
 #     manager = DynamoDBManager()
