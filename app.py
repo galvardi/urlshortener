@@ -17,7 +17,7 @@ async def root():
 async def shorten_url(url: str):
     hashed_url = calculate_hash(st=url)
     dependencies_container.db.add_url(key=hashed_url, value=url)
-    return DOMAIN_NAME + hashed_url
+    return DOMAIN_NAME + '/' + hashed_url
 
 
 @app.get("/{url_hash}")
