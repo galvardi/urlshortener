@@ -5,7 +5,7 @@ from constants import DOMAIN_NAME
 from dependencies_container import DependenciesContainer
 from utils import calculate_hash
 
-app = FastAPI()
+app = FastAPI(root_path="/api")
 dependencies_container = DependenciesContainer()
 origins = ["*"]
 app.add_middleware(
@@ -16,12 +16,12 @@ app.add_middleware(
  allow_headers=["*"],
 )
 
-@app.get("/api/test")
+@app.get("/test")
 async def root():
     return "Working!"
 
 
-@app.post("/shorten/")
+@app.post("/shorten")
 async def shorten_url(url: str):
     hashed_url = calculate_hash(st=url)
     dependencies_container.db.add_url(key=hashed_url, value=url)
