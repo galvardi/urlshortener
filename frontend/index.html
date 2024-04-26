@@ -157,12 +157,49 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="subscription-input-group">
+							<!--
 							<form action="#">
 								<input type="text" class="subscription-input-form" placeholder="Enter your long url">
 								<button class="appsLand-btn subscribe-btn" onclick="window.location.href='#'">
 									Shorten
 								</button>
 							</form>
+							-->
+							<form id="myForm"> <input type="text" class="subscription-input-form" placeholder="Enter your long url">
+								<button class="appsLand-btn subscribe-btn" type="button" onclick="submitForm()">
+								   Shorten
+								</button>
+							</form>
+
+							<script>
+								function submitForm() {
+									// Collect data from the form
+									const url = document.querySelector('.subscription-input-form').value;
+
+									// Construct the data you want to send
+									const dataToSend = {
+										longUrl: url
+									};
+
+									// Make the POST request
+									fetch('/your-api-endpoint', {
+										method: 'POST',
+										headers: {
+											'Content-Type': 'application/json'
+										},
+										body: JSON.stringify(dataToSend)
+									})
+									.then(response => {
+										// Handle the response from your API (success or error)
+										if (response.ok) {
+											console.log("Success:", response);
+										} else {
+											console.error("Error:", response);
+										}
+									})
+									.catch(error => console.error('Error:', error));
+								}
+							</script>
 						</div>
 					</div>	
 				</div>
