@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 from starlette.middleware.cors import CORSMiddleware
 
 from constants import DOMAIN_NAME
@@ -31,7 +31,8 @@ async def root():
 
 
 @app.post("/shorten")
-async def shorten_url(url: str):
+async def shorten_url(payload: Body(..., json=True)):
+    url = payload['url']
     hashed_url = calculate_hash(st=url)
     dependencies_container.db.add_url(key=hashed_url, value=url)
     return DOMAIN_NAME + '/' + hashed_url
