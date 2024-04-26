@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 from constants import DOMAIN_NAME
 from dependencies_container import DependenciesContainer
