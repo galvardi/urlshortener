@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Body
 from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import RedirectResponse
 
 from constants import DOMAIN_NAME
 from dependencies_container import DependenciesContainer
@@ -43,7 +44,7 @@ async def shorten_url(payload: dict = Body(..., json=True)):
 @app.get("/{hashed_url}")
 async def get_long_url(hashed_url: str):
     url = dependencies_container.db.get_url(key=hashed_url)
-    return url
+    return RedirectResponse(url, status_code=302)
 
 # TODO: Add initializer
 # TODO: add env vars to server
