@@ -16,7 +16,7 @@ app.add_middleware(
  allow_headers=["*"],
 )
 
-@app.get("/test")
+@app.get("/api/test")
 async def root():
     return "Working!"
 
