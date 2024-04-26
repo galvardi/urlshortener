@@ -6,7 +6,14 @@ from utils import calculate_hash
 
 app = FastAPI()
 dependencies_container = DependenciesContainer()
-
+origins = ["*"]
+app.add_middleware(
+ CORSMiddleware,
+ allow_origins=origins,
+ allow_credentials=True,
+ allow_methods=["*"],
+ allow_headers=["*"],
+)
 
 @app.get("/test")
 async def root():
