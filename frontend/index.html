@@ -174,11 +174,11 @@
 							<script>
 								function submitForm() {
 									// Collect data from the form
-									const url = document.querySelector('.subscription-input-form').value;
+									const _url = document.querySelector('.subscription-input-form').value;
 
 									// Construct the data you want to send
 									const dataToSend = {
-										longUrl: url
+										url: _url
 									};
 
 									// Make the POST request
