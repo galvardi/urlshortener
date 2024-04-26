@@ -40,11 +40,11 @@ async def shorten_url(payload: dict = Body(..., json=True)):
     dependencies_container.db.add_url(key=hashed_url, value=url)
     return DOMAIN_NAME + '/' + hashed_url
 
-
 @app.get("/{hashed_url}")
 async def get_long_url(hashed_url: str):
     url = dependencies_container.db.get_url(key=hashed_url)
-    return RedirectResponse(url, status_code=302)
+    return RedirectResponse("https://" + url, status_code=302)
+ # todo check fix parsing
 
 # TODO: Add initializer
 # TODO: add env vars to server
