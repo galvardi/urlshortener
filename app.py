@@ -24,7 +24,7 @@ async def log_requests(request, call_next):
     response = await call_next(request)
     return response
 
-@app.get("/test")
+@app.get("/api/test")
 async def root():
     return "Working!"
 
@@ -36,7 +36,7 @@ async def shorten_url(url: str):
     return DOMAIN_NAME + '/' + hashed_url
 
 
-@app.get("/{hashed_url}")
+@app.get("/api/{hashed_url}")
 async def get_long_url(hashed_url: str):
     url = dependencies_container.db.get_url(key=hashed_url)
     return url
