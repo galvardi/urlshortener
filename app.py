@@ -10,12 +10,13 @@ app = FastAPI(root_path="/api")
 dependencies_container = DependenciesContainer()
 origins = ["*"]
 app.add_middleware(
- CORSMiddleware,
- allow_origins=origins,
- allow_credentials=True,
- allow_methods=["*"],
- allow_headers=["*"],
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
 
 # Add a log for all incoming requests
 @app.middleware("http")
@@ -24,6 +25,7 @@ async def log_requests(request, call_next):
     response = await call_next(request)
     return response
 
+
 # @app.get("/api/test")
 @app.get("/test")
 async def root():
@@ -31,7 +33,7 @@ async def root():
 
 
 @app.post("/shorten")
-async def shorten_url(payload: Body(..., json=True)):
+async def shorten_url(payload: dict = Body(..., json=True)):
     url = payload['url']
     hashed_url = calculate_hash(st=url)
     dependencies_container.db.add_url(key=hashed_url, value=url)
