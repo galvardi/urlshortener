@@ -6,8 +6,8 @@ from constants import DOMAIN_NAME
 from dependencies_container import DependenciesContainer
 from utils import calculate_hash
 
-# app = FastAPI(root_path="/api")
-app = FastAPI()
+app = FastAPI(root_path="/api")
+# app = FastAPI()
 dependencies_container = DependenciesContainer()
 origins = ["*"]
 app.add_middleware(
