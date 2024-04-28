@@ -6,8 +6,8 @@ from constants import DOMAIN_NAME
 from dependencies_container import DependenciesContainer
 from utils import calculate_hash
 
-app = FastAPI(root_path="/api")
-# app = FastAPI()
+# app = FastAPI(root_path="/api")
+app = FastAPI()
 dependencies_container = DependenciesContainer()
 origins = ["*"]
 app.add_middleware(
@@ -46,8 +46,7 @@ async def get_long_url(hashed_url: str):
     return RedirectResponse("https://" + url, status_code=302)
  # todo check fix parsing
 
-# TODO: Add initializer
-# TODO: add env vars to server
+
 # TODO: Make dynamo functions async using decorator
 # TODO: Add exception handling?
 # TODO: Add dynamo interface
