@@ -3,7 +3,7 @@ from typing import Optional
 
 import boto3
 
-from constants import LONG_TO_SHORT_DB_NAME, SHORT_TO_LONG_DB_NAME, HASHED_URL, LONG_URL
+from constants import LONG_TO_SHORT_DB_NAME, SHORT_TO_LONG_DB_NAME, HASHED_URL, LONG_URL, AWS_DEFAULT_REGION
 
 
 # for mock class later
@@ -17,8 +17,8 @@ class DynamoDBManagerInterface(ABC):
 
 class DynamoDBManager:
     def __init__(self):
-        self.long_to_short_table = boto3.resource('dynamodb').Table(LONG_TO_SHORT_DB_NAME)
-        self.short_to_long_table = boto3.resource('dynamodb').Table(SHORT_TO_LONG_DB_NAME)
+        self.long_to_short_table = boto3.resource('dynamodb', region_name=AWS_DEFAULT_REGION).Table(LONG_TO_SHORT_DB_NAME)
+        self.short_to_long_table = boto3.resource('dynamodb', region_name=AWS_DEFAULT_REGION).Table(SHORT_TO_LONG_DB_NAME)
 
     def add_url(self, key: str, value: str):
         if self.get_url(key=key): return
