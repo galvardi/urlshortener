@@ -118,7 +118,7 @@
 								<button class="appsLand-btn subscribe-btn" type="button" onclick="submitForm()">
 								   Shorten
 								</button>
-							</form> <div id="shortenedUrl"></div>
+							<div id="shortenedUrl" style="background-color: white;"></div>
 
 							<script>
 								function submitForm() {
@@ -142,7 +142,7 @@
 								   .then(data => {
 									   const shortenedUrl = document.getElementById('shortenedUrl');
 									   if (data.shortenedURL) {  // Assuming 'shortenedURL' is in the response
-										   shortenedUrl.textContent = 'Shortened URL: ' + data.shortenedURL;
+										   shortenedUrl.textContent = 'Shortened URL:  ' + data.shortenedURL;
 									   } else {
 										   // Assumes the API returns an error message in data.error
 										   shortenedUrl.textContent = 'Error: ' + data.error;
