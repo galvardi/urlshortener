@@ -138,15 +138,6 @@
 										},
 										body: JSON.stringify(dataToSend)
 									})
-<!--									.then(response => {-->
-<!--										// Handle the response from your API (success or error)-->
-<!--										if (response.ok) {-->
-<!--											console.log("Success:", response);-->
-<!--										} else {-->
-<!--											console.error("Error:", response);-->
-<!--										}-->
-<!--									})-->
-<!--									.catch(error => console.error('Error:', error));-->
 								   .then(response => response.json()) // Get JSON data
 								   .then(data => {
 									   const shortenedUrl = document.getElementById('shortenedUrl');
