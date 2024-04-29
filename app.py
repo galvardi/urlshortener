@@ -39,7 +39,7 @@ async def shorten_url(payload: dict = Body(..., json=True)):
     hashed_url = calculate_hash(st=url)
     dependencies_container.db.add_url(key=hashed_url, value=url)
     # return DOMAIN_NAME + '/' + hashed_url
-    return {'shortenedURL':DOMAIN_NAME + '/' + hashed_url}
+    return {'shortenedURL':DOMAIN_NAME + '/api/' + hashed_url}
 
 @app.get("/{hashed_url}")
 async def get_long_url(hashed_url: str):
