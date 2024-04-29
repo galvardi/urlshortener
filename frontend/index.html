@@ -138,15 +138,29 @@
 										},
 										body: JSON.stringify(dataToSend)
 									})
-									.then(response => {
-										// Handle the response from your API (success or error)
-										if (response.ok) {
-											console.log("Success:", response);
-										} else {
-											console.error("Error:", response);
-										}
-									})
-									.catch(error => console.error('Error:', error));
+<!--									.then(response => {-->
+<!--										// Handle the response from your API (success or error)-->
+<!--										if (response.ok) {-->
+<!--											console.log("Success:", response);-->
+<!--										} else {-->
+<!--											console.error("Error:", response);-->
+<!--										}-->
+<!--									})-->
+<!--									.catch(error => console.error('Error:', error));-->
+								   .then(response => response.json()) // Get JSON data
+								   .then(data => {
+									   const shortenedUrl = document.getElementById('shortenedUrl');
+									   if (data.shortenedURL) {  // Assuming 'shortenedURL' is in the response
+										   shortenedUrl.textContent = 'Shortened URL: ' + data.shortenedURL;
+									   } else {
+										   // Assumes the API returns an error message in data.error
+										   shortenedUrl.textContent = 'Error: ' + data.error;
+									   }
+								   })
+								   .catch(error => {
+									   console.error('Error:', error);
+									   shortenedUrl.textContent = 'An error occurred during the request.';
+								   });
 								}
 							</script>
 						</div>
