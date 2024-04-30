@@ -53,10 +53,3 @@ async def get_long_url(hashed_url: str):
     if not (url[:8] == HTTPS or url[:7] == HTTP):
         url = HTTPS + url
     return RedirectResponse(url=url)
-
-
-# TODO: Make dynamo functions async using decorator
-# TODO: Add exception handling?
-# TODO: Add logging
-# TODO: Add integration test
-# TODO: Add certificate for https
