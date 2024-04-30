@@ -59,3 +59,4 @@ async def get_long_url(hashed_url: str):
 # TODO: Add exception handling?
 # TODO: Add logging
 # TODO: Add integration test
+# TODO: Add certificate for https
