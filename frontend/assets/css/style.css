@@ -42,7 +42,7 @@ font-family: 'Roboto', sans-serif;
 body{
 	font-family: 'Poppins', sans-serif;
 	font-size:14px;
-	color:#a09e9c;
+	color:#000000;
     text-transform:initial;
     max-width:1920px;
     margin:0 auto;
@@ -172,7 +172,7 @@ nav.navbar.bootsnav {
     background-color:#fff;
     border-bottom: transparent;
 }
-.wrap-sticky nav.navbar.bootsnav.sticked {background-color: #fff;box-shadow: 0 2px 5px rgba(0,0,0,.2);}
+.wrap-sticky nav.navbar.bootsnav.sticked {background-color: #000000;box-shadow: 0 2px 5px rgba(0,0,0,.2);}
 
 /*.navbar-brand*/
 .navbar-header a.navbar-brand,.navbar-header a.navbar-brand:hover,.navbar-header a.navbar-brand:focus {
@@ -824,6 +824,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     font-size: 16px;
     font-weight: 500;
     border: 0;
+    margin-bottom: 30px;
     overflow: hidden;
     cursor: pointer;
     -webkit-transition:0.3s ease-in-out;
