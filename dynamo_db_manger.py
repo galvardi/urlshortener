@@ -29,10 +29,3 @@ class DynamoDBManager:
         response = self.short_to_long_table.get_item(Key={HASHED_URL: key})
         if not response.get("Item"): return
         return response["Item"][LONG_URL]
-
-# if __name__ == '__main__':
-#     manager = DynamoDBManager()
-#     print(manager.add_url("youtubeg.com", "asdasdkkss"))
-#     print(manager.add_url("youtubeg.com", "asadasdkkss"))
-#     print(manager.get_url("youtube.com"))
-#     print(manager.get_url("youske.com"))
