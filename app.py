@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Body, Response
+from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
 from pydantic import BaseModel
@@ -37,7 +37,7 @@ async def log_requests(request, call_next):
 async def root():
     return "Working!"
 
-
+# hashing the original url and adding to db
 @app.post("/shorten")
 async def shorten_url(payload: Item):
     url = payload.url
@@ -45,6 +45,7 @@ async def shorten_url(payload: Item):
     dependencies_container.db.add_url(key=hashed_url, value=url)
     return {'shortenedURL':DOMAIN_NAME + '/api/' + hashed_url}
 
+# gets original url from db and redirecting to it
 @app.get("/{hashed_url}")
 async def get_long_url(hashed_url: str):
     url = dependencies_container.db.get_url(key=hashed_url)
