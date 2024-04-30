@@ -3,6 +3,8 @@
 Brief Description:
 A user-friendly URL shortening service built with FastAPI, utilizing AWS DynamoDB as a backend, and hosted on AWS EC2.
 
+==================  Technologies ==================
+
 Backend:
 FastAPI (Python REST API framework)
 Uvicorn (ASGI Server)
@@ -10,12 +12,13 @@ AWS DynamoDB (NoSQL Database)
 
 Frontend:
 the skeleton for the frontend was downloaded from free-css.com and adjusted for my simple needs
+https://www.free-css.com/free-css-templates/page296/listrace
 
 Infrastructure:
 AWS EC2 (Ubuntu)
 Nginx (Reverse Proxy)
 
-Project Structure:
+==================  Project Structure  ==================
 
 frontend - continains the assets and index.html files
 
@@ -33,6 +36,6 @@ utils.py - Houses helper function for URL shortening logic, hash generation.
 
 requirements.txt - Lists all necessary Python dependencies for the project.
 
+==================  Contact  ==================
 
-Contact: 
 Gal Vardi, for any questions you can reach me at :  galvardi11@gmail.com
