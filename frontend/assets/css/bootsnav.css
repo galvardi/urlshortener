@@ -752,12 +752,34 @@ body.on-side .wrap-sticky nav.navbar.bootsnav.sticked{
         float: none;
         margin: 0;
     }
+
+    /* Navbar Brand right
+    =================================*/
+    nav.bootsnav.navbar-brand-right .navbar-header{
+        display: block;
+        width: 100%;
+        text-align: centerht;
+    }
     
-    nav.bootsnav.navbar-brand-top .navbar-collapse{
+    nav.bootsnav.navbar-brand-right ul.nav > li.dropdown > ul.dropdown-menu{
+        margin-top: 2px;
+    }
+    
+    nav.bootsnav.navbar-brand-right ul.nav > li.dropdown.megamenu-fw > ul.dropdown-menu{
+        margin-top: 0;
+    }
+    
+    nav.bootsnav.navbar-brand-right .navbar-header .navbar-brand{
+        display: inline-block;
+        float: none;
+        margin: 0;
+    }
+    
+    nav.bootsnav.navbar-brand-right
         text-align: center;
     }
     
-    nav.bootsnav.navbar-brand-top ul.nav{
+    nav.bootsnav.navbar-brand-right ul.nav{
         display: inline-block;
         float: none;
         margin: 0 0 -5px 0;

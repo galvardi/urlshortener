@@ -70,20 +70,16 @@
 
 			            <!-- Start Header Navigation -->
 			            <div class="navbar-header">
-			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                <button type="button" class="navbar-toggle">
 			                    <i class="fa fa-bars"></i>
 			                </button>
 			                <a class="navbar-brand" href="index.html">URL<span>Shortener</span></a>
-
+							<a style="padding:34px; float:right;" href="https://github.com/galvardi/urlshortener">GitHub Repository</a>
 			            </div><!--/.navbar-header-->
 			            <!-- End Header Navigation -->
 
 			            <!-- Collect the nav links, forms, and other content for toggling -->
-			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                    <li class=" scroll active"><a href="#https://github.com/galvardi/urlshortener">GitHub Repository</a></li>
-			                </ul><!--/.nav -->
-			            </div><!-- /.navbar-collapse -->
+						
 			        </div><!--/.container-->
 			    </nav><!--/nav-->
 			    <!-- End Navigation -->
@@ -119,7 +115,7 @@
 								   Shorten
 								</button>
 								<div id="shortenedUrl" style="background-color: white;"></div>
-							
+
 
 							<script>
 								function submitForm() {
@@ -154,8 +150,18 @@
 									   shortenedUrl.textContent = 'An error occurred during the request.';
 								   });
 								}
+								const inputField = document.querySelector('.subscription-input-form');
+
+								// Add the event listener for Enter key press
+								inputField.addEventListener('keypress', function(event) {
+									if (event.keyCode === 13) { // 13 is the code for the Enter key
+										event.preventDefault(); // Prevent default form submission
+										submitForm(); 
+									}
+								});
 							</script>
 							</form>
+							
 						</div>
 					</div>	
 				</div>
