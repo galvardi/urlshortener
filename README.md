@@ -25,7 +25,7 @@ The frontend can be found at http://galvardi.com, the projects Rest api can be f
 
 ## Project Structure
 
-frontend - continains the assets and index.html files
+frontend - contains the assets and index.html files
 
 app.py - Contains core functions and logic for the url shortening Fastapi.
 
