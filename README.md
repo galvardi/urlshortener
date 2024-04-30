@@ -1,6 +1,3 @@
-# urlshortener
-README.md
-
 ==================  URL Shortener  ==================
 
 Brief Description:
