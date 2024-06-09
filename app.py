@@ -35,7 +35,7 @@ async def log_requests(request, call_next):
 # @app.get("/api/test")
 @app.get("/test")
 async def root():
-    return "Working as planned"
+    return "Working as planned!"
 
 # hashing the original url and adding to db
 @app.post("/shorten")
